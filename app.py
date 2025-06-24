@@ -26,7 +26,7 @@ query = """select b.id , b.guest_id , g.email ,r.type , b.check_in , b.check_out
         join rooms r on b.room_id = r.id 
         order by b.check_in desc
     """
-full_data = execute_query(query,fetch=True)
+full_data= execute_query(query,fetch=True)
 full_data = pd.DataFrame(full_data)
 
 guest['active'] = guest['id'].apply(lambda x : "active" if x in booking['guest_id'].tolist() else "not active" )
